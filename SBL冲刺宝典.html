@@ -1,0 +1,1962 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SBL 考前冲刺宝典 · 48小时稳过指南</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=DM+Mono:wght@400;500&display=swap');
+
+  :root {
+    --gold: #D4A843;
+    --gold-light: #F2D084;
+    --red: #C0392B;
+    --red-light: #E74C3C;
+    --ink: #1A1208;
+    --paper: #FAF6EE;
+    --paper2: #F2EBD9;
+    --muted: #7A6E5A;
+    --green: #2D7A4F;
+    --blue: #1A4A8A;
+    --border: rgba(212, 168, 67, 0.3);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Serif SC', serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: var(--ink);
+    color: var(--gold);
+    text-align: center;
+    padding: 60px 20px 50px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse at 20% 50%, rgba(212,168,67,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 50%, rgba(192,57,43,0.06) 0%, transparent 60%);
+  }
+
+  .hero-badge {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    color: var(--gold-light);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    padding: 5px 16px;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+  }
+
+  .hero h1 {
+    font-size: clamp(36px, 6vw, 72px);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, #A0762A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 40px;
+    font-weight: 400;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+
+  .hero-stat {
+    text-align: center;
+  }
+
+  .hero-stat .num {
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--gold);
+    display: block;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .hero-stat .label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 1px;
+  }
+
+  /* ===== NAV TABS ===== */
+  .nav-tabs {
+    background: var(--ink);
+    padding: 0 20px;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    border-top: 1px solid rgba(212,168,67,0.2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    scrollbar-width: none;
+  }
+
+  .nav-tabs::-webkit-scrollbar { display: none; }
+
+  .tab-btn {
+    padding: 14px 24px;
+    font-family: 'Noto Serif SC', serif;
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+    font-weight: 600;
+  }
+
+  .tab-btn:hover { color: var(--gold-light); }
+  .tab-btn.active { 
+    color: var(--gold); 
+    border-bottom-color: var(--gold);
+  }
+
+  /* ===== MAIN CONTENT ===== */
+  .content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .section {
+    display: none;
+    padding: 48px 0;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .section.active { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== SECTION TITLE ===== */
+  .section-title {
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--ink);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-title .icon {
+    width: 36px; height: 36px;
+    background: var(--gold);
+    color: var(--ink);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .section-desc {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 36px;
+    padding-left: 48px;
+  }
+
+  /* ===== DIVIDER ===== */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 32px 0;
+  }
+
+  /* ===== CARDS ===== */
+  .card-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--gold);
+  }
+
+  .card.red::before { background: var(--red); }
+  .card.green::before { background: var(--green); }
+  .card.blue::before { background: var(--blue); }
+
+  .card-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--ink);
+  }
+
+  .card p, .card li {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+
+  .card ul { padding-left: 16px; }
+
+  /* ===== TIMELINE ===== */
+  .timeline {
+    position: relative;
+    padding-left: 40px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 12px;
+    top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+  }
+
+  .tl-item {
+    position: relative;
+    margin-bottom: 32px;
+  }
+
+  .tl-dot {
+    position: absolute;
+    left: -34px;
+    top: 4px;
+    width: 20px; height: 20px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--ink);
+    font-family: 'DM Mono', monospace;
+  }
+
+  .tl-content {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+  }
+
+  .tl-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+
+  .tl-week {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    background: var(--gold);
+    color: var(--ink);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+  }
+
+  .tl-date {
+    font-size: 12px;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+  }
+
+  .tl-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .tl-body {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+
+  .tl-goal {
+    margin-top: 8px;
+    padding: 10px 14px;
+    background: var(--paper2);
+    border-radius: 6px;
+    font-size: 12px;
+    color: var(--ink);
+    border-left: 3px solid var(--gold);
+  }
+
+  /* ===== KNOWLEDGE MAP ===== */
+  .km-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+  }
+
+  .km-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s;
+  }
+
+  .km-card:hover { transform: translateY(-2px); }
+
+  .km-header {
+    padding: 14px 18px;
+    font-weight: 700;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .km-header.strategy { background: #FEF3C7; color: #92400E; }
+  .km-header.governance { background: #DBEAFE; color: #1E3A8A; }
+  .km-header.ethics { background: #D1FAE5; color: #065F46; }
+  .km-header.innovation { background: #EDE9FE; color: #4C1D95; }
+  .km-header.performance { background: #FEE2E2; color: #991B1B; }
+  .km-header.project { background: #E0F2FE; color: #0C4A6E; }
+  .km-header.technique { background: #FCE7F3; color: #831843; }
+
+  .km-pages {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    opacity: 0.7;
+  }
+
+  .km-body {
+    padding: 14px 18px;
+  }
+
+  .km-body .topic {
+    font-size: 12px;
+    padding: 4px 0;
+    border-bottom: 1px solid var(--paper2);
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .km-body .topic:last-child { border-bottom: none; }
+
+  .hot {
+    display: inline-block;
+    background: var(--red);
+    color: white;
+    font-size: 9px;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-family: 'DM Mono', monospace;
+    white-space: nowrap;
+  }
+
+  /* ===== EXAM TIPS ===== */
+  .tip-section {
+    margin-bottom: 32px;
+  }
+
+  .tip-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .tip-box {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 12px;
+  }
+
+  .tip-box h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .tip-box p, .tip-box li {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.9;
+  }
+
+  .tip-box ul { padding-left: 18px; }
+
+  .highlight-box {
+    background: linear-gradient(135deg, #FFF8E7, #FEF3C7);
+    border: 1px solid var(--gold);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+
+  .highlight-box h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #92400E;
+    margin-bottom: 8px;
+  }
+
+  .highlight-box p, .highlight-box li {
+    font-size: 13px;
+    color: #78350F;
+    line-height: 1.9;
+  }
+
+  .highlight-box ul { padding-left: 18px; }
+
+  .danger-box {
+    background: linear-gradient(135deg, #FEF2F2, #FEE2E2);
+    border: 1px solid var(--red-light);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+
+  .danger-box h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--red);
+    margin-bottom: 8px;
+  }
+
+  .danger-box p, .danger-box li {
+    font-size: 13px;
+    color: #7F1D1D;
+    line-height: 1.9;
+  }
+
+  .danger-box ul { padding-left: 18px; }
+
+  /* ===== PAST PAPERS ===== */
+  .paper-item {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+
+  .paper-header {
+    padding: 16px 20px;
+    background: var(--ink);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .paper-header h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  .paper-header .paper-meta {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    font-family: 'DM Mono', monospace;
+  }
+
+  .paper-body {
+    padding: 20px;
+  }
+
+  .question-row {
+    display: grid;
+    grid-template-columns: 80px 1fr 80px;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--paper2);
+    align-items: start;
+  }
+
+  .question-row:last-child { border-bottom: none; }
+
+  .q-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--gold);
+    padding-top: 2px;
+  }
+
+  .q-content { font-size: 13px; color: var(--ink); line-height: 1.7; }
+  .q-tip { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .q-marks {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: white;
+    background: var(--muted);
+    padding: 2px 7px;
+    border-radius: 4px;
+    text-align: center;
+    height: fit-content;
+  }
+
+  .q-marks.high { background: var(--red); }
+  .q-marks.med { background: var(--blue); }
+
+  .drill-badge {
+    display: inline-block;
+    font-size: 10px;
+    padding: 1px 6px;
+    border-radius: 3px;
+    margin-left: 6px;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .drill-1 { background: #D1FAE5; color: #065F46; }
+  .drill-2 { background: #DBEAFE; color: #1E3A8A; }
+  .drill-3 { background: #FEE2E2; color: #991B1B; }
+
+  /* ===== TWO DAYS PLAN ===== */
+  .two-day {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  @media (max-width: 640px) {
+    .two-day { grid-template-columns: 1fr; }
+    .card-grid { grid-template-columns: 1fr; }
+    .km-grid { grid-template-columns: 1fr; }
+  }
+
+  .day-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .day-header {
+    padding: 18px 20px;
+    font-size: 18px;
+    font-weight: 900;
+    text-align: center;
+  }
+
+  .day-header.d1 { background: var(--ink); color: var(--gold); }
+  .day-header.d2 { background: var(--red); color: white; }
+
+  .day-body { padding: 20px; }
+
+  .task-item {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--paper2);
+    align-items: start;
+  }
+
+  .task-item:last-child { border-bottom: none; }
+
+  .task-time {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    white-space: nowrap;
+    padding-top: 2px;
+    min-width: 55px;
+  }
+
+  .task-text {
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.7;
+  }
+
+  .task-sub {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+
+  /* ===== FORMULA CARDS ===== */
+  .formula-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 14px;
+  }
+
+  .formula-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+
+  .formula-card .fc-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+
+  .formula-card .fc-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .formula-card .fc-content {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.9;
+  }
+
+  .fc-keyword {
+    color: var(--red);
+    font-weight: 700;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.3);
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 12px;
+    margin-top: 60px;
+  }
+
+  .footer span { color: var(--gold); }
+
+  /* ===== SCROLLBAR ===== */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: var(--paper); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+  /* ===== BIG NUMBER ===== */
+  .big-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 64px;
+    font-weight: 900;
+    color: var(--paper2);
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  /* Tags */
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin: 2px;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .tag-hot { background: #FEE2E2; color: #991B1B; }
+  .tag-warm { background: #FEF3C7; color: #92400E; }
+  .tag-cold { background: #E0F2FE; color: #0C4A6E; }
+  .tag-must { background: var(--ink); color: var(--gold); }
+
+  /* Tooltip */
+  .tooltip-trigger {
+    cursor: help;
+    border-bottom: 1px dashed var(--muted);
+  }
+
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">ACCA · SBL · 3月考试 · 冲刺宝典</div>
+  <h1>48小时稳过<br>SBL考试</h1>
+  <p class="hero-sub">从零基础 → 掌握框架 → 精准答题 · 蹇老师冲刺版精华整理</p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <span class="num">6</span>
+      <span class="label">大知识模块</span>
+    </div>
+    <div class="hero-stat">
+      <span class="num">6</span>
+      <span class="label">套必做真题</span>
+    </div>
+    <div class="hero-stat">
+      <span class="num">3</span>
+      <span class="label">大核心技巧</span>
+    </div>
+    <div class="hero-stat">
+      <span class="num">55+</span>
+      <span class="label">目标得分</span>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="nav-tabs">
+  <button class="tab-btn active" onclick="switchTab('overview')">📋 考试概览</button>
+  <button class="tab-btn" onclick="switchTab('twodays')">⚡ 48小时计划</button>
+  <button class="tab-btn" onclick="switchTab('knowledge')">📚 知识点地图</button>
+  <button class="tab-btn" onclick="switchTab('tips')">🎯 应试技巧</button>
+  <button class="tab-btn" onclick="switchTab('papers')">📝 真题带练</button>
+  <button class="tab-btn" onclick="switchTab('sixweeks')">🗓️ 6周计划</button>
+</div>
+
+<!-- ======================= SECTION: OVERVIEW ======================= -->
+<div class="content">
+<div id="overview" class="section active">
+  <div class="section-title">
+    <div class="icon">📋</div>
+    SBL考试全貌
+  </div>
+  <p class="section-desc">考前必须搞清楚的基本规则 · 一分钟建立全局观</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-tag">考试形式</div>
+      <h3>SBL 是什么考试？</h3>
+      <ul>
+        <li>Strategic Business Leader（战略商业领袖）</li>
+        <li>3小时10分钟，电脑作答</li>
+        <li>考前发放 Pre-seen（预读材料）</li>
+        <li>考试当天：4份额外资料 + 考题</li>
+        <li>所有题目均围绕同一案例公司</li>
+      </ul>
+    </div>
+
+    <div class="card red">
+      <div class="card-tag">核心秘诀 ⚠️</div>
+      <h3>最重要的三件事</h3>
+      <ul>
+        <li>🔴 <strong>背宝典</strong>：积累答题素材（知识点）</li>
+        <li>🔵 <strong>刷题学审题</strong>：学会看懂题目要什么</li>
+        <li>🟡 <strong>交相辉映</strong>：题目 + PM + 资料三者结合</li>
+      </ul>
+    </div>
+
+    <div class="card green">
+      <div class="card-tag">Pre-seen 正确态度</div>
+      <h3>Pre-seen 怎么用？</h3>
+      <ul>
+        <li>考前读5遍以上（英语差）/ 3遍（英语好）</li>
+        <li>只需熟悉内容和位置，<strong>不要分析出题思路</strong></li>
+        <li>考试当天的资料比 Pre-seen 更重要！</li>
+        <li>答案往往就藏在当天资料里 → 抄并展开</li>
+      </ul>
+    </div>
+
+    <div class="card blue">
+      <div class="card-tag">评分标准</div>
+      <h3>如何得分？</h3>
+      <ul>
+        <li>一句话 = 一分（仁慈的评分！）</li>
+        <li>答案要合理 + 不能光抄（要展开）</li>
+        <li>答案质量 > 答案深度</li>
+        <li>绝对不要没问建议乱写建议！</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section-title" style="font-size:20px; margin-bottom:16px;">
+    <div class="icon" style="width:28px;height:28px;font-size:14px;">⚔</div>
+    挂科原因 vs 正确方法
+  </div>
+
+  <div class="card-grid">
+    <div class="danger-box" style="border-radius:12px;">
+      <h4>❌ 挂科的常见原因</h4>
+      <ul>
+        <li>只背宝典，不刷题（或只刷题，不背宝典）</li>
+        <li>答案不够深入？——错！不是深度问题！</li>
+        <li>分析出题思路，乱猜pre-seen考点</li>
+        <li>没问建议，却拼命写建议</li>
+        <li>死套模型，硬凑每一个模型环节</li>
+        <li>纠结自己的答案是不是对，浪费时间</li>
+      </ul>
+    </div>
+    <div class="highlight-box" style="border-radius:12px;">
+      <h4>✅ 正确的学习方法</h4>
+      <ul>
+        <li>王道：背宝典 + 刷题学审题，两手都要硬</li>
+        <li>理解考官答案的逻辑，抄他，被他同化</li>
+        <li>答案合理 + 围绕案例 = 得分关键</li>
+        <li>严格按分值分配答案点数</li>
+        <li>模型慎用：用模型润物细无声，不硬套</li>
+        <li>一定动手写一遍：训练答题速度</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section-title" style="font-size:20px; margin-bottom:16px;">
+    <div class="icon" style="width:28px;height:28px;font-size:14px;">📊</div>
+    PM（Performance Management）四大关键词
+  </div>
+
+  <div class="formula-grid">
+    <div class="formula-card">
+      <div class="fc-label">PM词汇 01</div>
+      <div class="fc-title">Scepticism（怀疑）</div>
+      <div class="fc-content">质疑某个说法/做法，分析其<span class="fc-keyword">问题与风险</span>，tone 偏负面</div>
+    </div>
+    <div class="formula-card">
+      <div class="fc-label">PM词汇 02</div>
+      <div class="fc-title">Evaluation（评估）</div>
+      <div class="fc-content">正反两面分析，要有<span class="fc-keyword">平衡性</span>，不能只写优点或只写缺点</div>
+    </div>
+    <div class="formula-card">
+      <div class="fc-label">PM词汇 03</div>
+      <div class="fc-title">Persuasion（说服）</div>
+      <div class="fc-content">偏<span class="fc-keyword">正面积极</span>的 tone，着重说优点和理由</div>
+    </div>
+    <div class="formula-card">
+      <div class="fc-label">PM词汇 04</div>
+      <div class="fc-title">Communication（沟通）</div>
+      <div class="fc-content">注意<span class="fc-keyword">受众</span>是谁，格式和措辞需要配合</div>
+    </div>
+    <div class="formula-card">
+      <div class="fc-label">PM词汇 05</div>
+      <div class="fc-title">Scepticism（PM = 质疑CEO）</div>
+      <div class="fc-content">比如：主席质疑CEO内控不力，你写信给CEO阐述看法，<span class="fc-keyword">tone要坚定有礼</span></div>
+    </div>
+    <div class="formula-card">
+      <div class="fc-label">考场技巧</div>
+      <div class="fc-title">不苛求 PM 完美</div>
+      <div class="fc-content">PM影响得分有限，别因 PM 措辞浪费大量时间，<span class="fc-keyword">答案实质内容</span>更重要</div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================= SECTION: TWO DAYS ======================= -->
+<div id="twodays" class="section">
+  <div class="section-title">
+    <div class="icon">⚡</div>
+    48小时急救计划
+  </div>
+  <p class="section-desc">考前两天的最优策略 · 每分钟都要用好</p>
+
+  <div class="two-day">
+    <div class="day-card">
+      <div class="day-header d1">第一天 · 建立框架</div>
+      <div class="day-body">
+        <div class="task-item">
+          <span class="task-time">AM 早上</span>
+          <div>
+            <div class="task-text">🎧 听应试技巧宝典第1段</div>
+            <div class="task-sub">搞清楚考试形式、Pre-seen和当天资料的关系</div>
+          </div>
+        </div>
+        <div class="task-item">
+          <span class="task-time">AM 上午</span>
+          <div>
+            <div class="task-text">📖 快速过知识点宝典 1-5段</div>
+            <div class="task-sub">Strategy / Governance / Ethics，建立模块框架，标出红色关键词</div>
+          </div>
+        </div>
+        <div class="task-item">
+          <span class="task-time">PM 下午</span>
+          <div>
+            <div class="task-text">🎬 听 2023/12 真题讲解（4段必听）</div>
+            <div class="task-sub">学习"抄+展"技巧，体会评分标准，一句话一分！</div>
+          </div>
+        </div>
+        <div class="task-item">
+          <span class="task-time">PM 下午</span>
+          <div>
+            <div class="task-text">📖 快速过知识点宝典 6-9段</div>
+            <div class="task-sub">Innovation & Tech / Performance / Project，标红色词</div>
+          </div>
+        </div>
+        <div class="task-item">
+          <span class="task-time">晚 上</span>
+          <div>
+            <div class="task-text">📑 阅读当季 Pre-seen 2-3遍</div>
+            <div class="task-sub">熟悉公司背景、行业特点、关键人物</div>
+          </div>
+        </div>
+        <div class="task-item">
+          <span class="task-time">睡前</span>
+          <div>
+            <div class="task-text">🔴 背宝典红色字（策略+治理）</div>
+            <div class="task-sub">重点：五力模型描述语句 / NED职能 / AA六条原则</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-header d2">第二天 · 强化审题</div>
+      <div class="day-body">
+        <div class="task-item">
+          <span class="task-time">AM 早上</span>
+          <div>
+            <div class="task-text">🎬 听 2023/09 Q2 讲解（审题核心课）</div>
+            <div class="task-sub">交相辉映审题法、一句话一分、SO送分套路</div>
+          </div>
+        </div>
+        <div class="task-item">
+          <span class="task-time">AM 上午</span>
+          <div>
+            <div class="task-text">✍️ 动手做 1套完整题目（2020/12）</div>
+            <div class="task-sub">先自己写Q1b&Q3，再对比参考答案，找差距</div>
+          </div>
+        </div>
+        <div class="task-item">
+          <span class="task-time">PM 下午</span>
+          <div>
+            <div class="task-text">🎬 听 2024/12 BCG+PM评分 讲解</div>
+            <div class="task-sub">理解为什么答案不够深不是挂科原因</div>
+          </div>
+        </div>
+        <div class="task-item">
+          <span class="task-time">PM 下午</span>
+          <div>
+            <div class="task-text">📑 再读 Pre-seen 2遍 + 听讲解视频</div>
+            <div class="task-sub">按老师讲解重新理解公司信息，准备当天资料应用</div>
+          </div>
+        </div>
+        <div class="task-item">
+          <span class="task-time">晚 上</span>
+          <div>
+            <div class="task-text">🔴 背宝典红色字（Ethics+Tech）</div>
+            <div class="task-sub">AA六条原则 / Big Data要点 / EMAS要点 / 新技术应用</div>
+          </div>
+        </div>
+        <div class="task-item">
+          <span class="task-time">睡前</span>
+          <div>
+            <div class="task-text">📋 复习考场时间管理策略</div>
+            <div class="task-sub">做题顺序 / 先读题再读资料 / Keep Moving原则</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="highlight-box">
+    <h4>🌟 48小时最重要的领悟</h4>
+    <ul>
+      <li>SBL不考记忆力，考的是<strong>分析能力 + 审题能力</strong></li>
+      <li>考场上的答案80%来自当天资料，要学会"抄"材料再展开分析</li>
+      <li>一定要动手打出至少一套完整题目 —— 速度训练不可少</li>
+      <li>Pre-seen只要熟悉，分析工作是老师的事，不要浪费时间猜题</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ======================= SECTION: KNOWLEDGE ======================= -->
+<div id="knowledge" class="section">
+  <div class="section-title">
+    <div class="icon">📚</div>
+    知识点宝典地图
+  </div>
+  <p class="section-desc">小红书宝典 · 9大模块 · 考试重点一览</p>
+
+  <div class="km-grid">
+    <div class="km-card">
+      <div class="km-header strategy">
+        <span>🏔 A1 Strategic Position</span>
+        <span class="km-pages">41页</span>
+      </div>
+      <div class="km-body">
+        <div class="topic">📍 PESTEL / 五力模型应用 <span class="hot">HOT</span></div>
+        <div class="topic">📍 Strategic position分析</div>
+        <div class="topic">📍 Mission & Strategic Objectives <span class="hot">送分</span></div>
+        <div class="topic">📍 Stakeholder 利益相关方分析 <span class="hot">HOT</span></div>
+        <div class="topic">📍 Value Chain 价值链</div>
+        <div class="topic">📍 Resources & Capabilities</div>
+        <div class="topic">📍 SWOT整合</div>
+        <div class="topic" style="color:var(--red);">⚠️ 审题关键：后半句细节决定答案方向</div>
+      </div>
+    </div>
+
+    <div class="km-card">
+      <div class="km-header strategy">
+        <span>🎯 A2 Strategic Choice</span>
+        <span class="km-pages">33页</span>
+      </div>
+      <div class="km-body">
+        <div class="topic">📍 Ansoff Matrix 安索夫矩阵</div>
+        <div class="topic">📍 SFA 适用性/可行性/可接受性 <span class="hot">HOT</span></div>
+        <div class="topic">📍 Evaluate 两个战略选项 <span class="hot">HOT</span></div>
+        <div class="topic">📍 BCG Matrix <span class="hot">近年HOT</span></div>
+        <div class="topic">📍 Joint Venture / Franchise</div>
+        <div class="topic">📍 Portfolio 策略</div>
+        <div class="topic" style="color:var(--red);">⚠️ 模型慎用！SFA保留但5Q已删</div>
+      </div>
+    </div>
+
+    <div class="km-card">
+      <div class="km-header governance">
+        <span>🏛 B Governance</span>
+        <span class="km-pages">42+24页</span>
+      </div>
+      <div class="km-body">
+        <div class="topic">📍 NED 非执行董事职能 <span class="hot">HOT</span></div>
+        <div class="topic">📍 Board Structure 一元/二元 <span class="hot">HOT</span></div>
+        <div class="topic">📍 Agency Problem 委托代理</div>
+        <div class="topic">📍 Audit Committee / Risk Committee</div>
+        <div class="topic">📍 Internal Control 内控 <span class="hot">永久热点</span></div>
+        <div class="topic">📍 Remuneration 薪酬委员会</div>
+        <div class="topic">📍 Integrated Reporting <span class="hot">HOT</span></div>
+        <div class="topic" style="color:var(--blue);">💡 治理题知识储备要熟，不靠审题</div>
+      </div>
+    </div>
+
+    <div class="km-card">
+      <div class="km-header ethics">
+        <span>⚖️ C Ethics & D Change</span>
+        <span class="km-pages">47页</span>
+      </div>
+      <div class="km-body">
+        <div class="topic">📍 AA六条伦理原则 <span class="hot">必背</span></div>
+        <div class="topic">📍 5Q模型（旧考纲，会用即可）</div>
+        <div class="topic">📍 Ethical issues识别与分析</div>
+        <div class="topic">📍 Leadership styles 领导力 <span class="hot">近年HOT</span></div>
+        <div class="topic">📍 Change Management 变革管理</div>
+        <div class="topic">📍 Talent Management <span class="hot">重要</span></div>
+        <div class="topic">📍 Cultural Web 文化网 <span class="tag tag-warm">中等</span></div>
+        <div class="topic" style="color:var(--green);">✅ 伦理题要 specify ethical principle</div>
+      </div>
+    </div>
+
+    <div class="km-card">
+      <div class="km-header innovation">
+        <span>💡 E Innovation & Tech</span>
+        <span class="km-pages">50页</span>
+      </div>
+      <div class="km-body">
+        <div class="topic">📍 Big Data Benefits & Threats <span class="hot">永久热点</span></div>
+        <div class="topic">📍 New Technologies应用 <span class="hot">永久热点</span></div>
+        <div class="topic">📍 AI / Automation / IoT</div>
+        <div class="topic">📍 Data Security Controls <span class="hot">重要</span></div>
+        <div class="topic">📍 E-Marketing 电商营销</div>
+        <div class="topic">📍 Organisational Culture & Tech</div>
+        <div class="topic">📍 EMAS 环境管理 <span class="tag tag-warm">概率一般</span></div>
+        <div class="topic" style="color:var(--blue);">💡 技术题：永远按70-80%得分率准备</div>
+      </div>
+    </div>
+
+    <div class="km-card">
+      <div class="km-header performance">
+        <span>📊 F Performance Analysis</span>
+        <span class="km-pages">11页</span>
+      </div>
+      <div class="km-body">
+        <div class="topic">📍 Financial & Non-financial KPIs <span class="hot">HOT</span></div>
+        <div class="topic">📍 资料分析：纵向/横向比较</div>
+        <div class="topic">📍 Evaluate是否 significant/concerning</div>
+        <div class="topic">📍 Risk Register 风险清单 <span class="hot">HOT</span></div>
+        <div class="topic">📍 Investment Appraisal 投资测算</div>
+        <div class="topic" style="color:var(--red);">⚠️ 严格按审题写：问原因就写原因</div>
+      </div>
+    </div>
+
+    <div class="km-card">
+      <div class="km-header project">
+        <span>🗂 G Project Management</span>
+        <span class="km-pages">20页</span>
+      </div>
+      <div class="km-body">
+        <div class="topic">📍 Project Sponsor 项目发起人职能</div>
+        <div class="topic">📍 Project lifecycle 项目生命周期</div>
+        <div class="topic">📍 Resource management</div>
+        <div class="topic">📍 Stakeholder management</div>
+        <div class="topic" style="color:var(--muted);">概率较低，知道基本思路即可</div>
+      </div>
+    </div>
+
+    <div class="km-card">
+      <div class="km-header technique">
+        <span>🔑 应试技巧宝典</span>
+        <span class="km-pages">6段</span>
+      </div>
+      <div class="km-body">
+        <div class="topic">📍 第1段：考试形式与Pre-seen关系</div>
+        <div class="topic">📍 第2-3段：PM四类题型技巧</div>
+        <div class="topic">📍 第4段：Format格式总结 <span class="hot">必背</span></div>
+        <div class="topic">📍 第5段：时间管理&做题顺序</div>
+        <div class="topic">📍 第6段：仁慈又严格的评分标准</div>
+        <div class="topic">📍 第7段：SBL模型的使用</div>
+      </div>
+    </div>
+
+    <div class="km-card">
+      <div class="km-header strategy">
+        <span>🌡 近期冷门考点</span>
+        <span class="km-pages">14页</span>
+      </div>
+      <div class="km-body">
+        <div class="topic">📍 Collaborative Partnership 公私合营</div>
+        <div class="topic">📍 Market Segmentation 市场细分</div>
+        <div class="topic">📍 Diamond Model 钻石模型</div>
+        <div class="topic">📍 CPD 持续专业发展</div>
+        <div class="topic" style="color:var(--muted);">知道基本思路即可，别花太多时间</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="highlight-box">
+    <h4>🔴 宝典背诵终极目标</h4>
+    <p>红色字一定要做到<strong>肌肉记忆</strong>——闭眼能打出来！考场上只需要把这些词汇嵌入案例分析，就能稳稳得分。语法不是评分标准，逻辑合理 + 不光抄 才是关键。</p>
+  </div>
+</div>
+
+<!-- ======================= SECTION: TIPS ======================= -->
+<div id="tips" class="section">
+  <div class="section-title">
+    <div class="icon">🎯</div>
+    应试技巧核心框架
+  </div>
+  <p class="section-desc">这些技巧是区分通过与挂科的关键 · 全英文答案模板 + 中文快速理解</p>
+
+  <!-- SKILL 1: 交相辉映 -->
+  <div class="tip-section">
+    <div class="tip-title">⭐ 核心技巧一：交相辉映审题法（Three-Way Cross-Reference）</div>
+    <div class="highlight-box">
+      <h4>什么是"交相辉映"？</h4>
+      <p>答案方向由<strong>三者共同锁定</strong>：</p>
+      <ul style="margin-top:8px;">
+        <li>① <strong>Requirement 动词</strong>：Analyse / Evaluate / Assess / Recommend → 决定你怎么写</li>
+        <li>② <strong>PM 里的限定词</strong>：PM 中的关键词 = 考官强调的重点 → 决定写什么 tone</li>
+        <li>③ <strong>案例资料（Exhibit）</strong>：当天资料 > Pre-seen → 答案素材来源</li>
+      </ul>
+      <p style="margin-top:10px; color:#92400E;"><strong>规律：题目、PM、资料中同时出现的词 = 考官在送分，一定要写到！</strong></p>
+    </div>
+    <div class="tip-box">
+      <h4>📌 审题五步（每道题必做）</h4>
+      <ul>
+        <li><strong>Step 1</strong> 找动词 → Analyse（分析原因）/ Evaluate（正反评估）/ Assess（判断程度）/ Recommend（给建议）</li>
+        <li><strong>Step 2</strong> 读后半句细节 → "impact on <u>strategic objectives</u>" / "in relation to <u>current business model</u>" → 这里决定答案边界</li>
+        <li><strong>Step 3</strong> 看 PM → 找关键词（如 "scepticism" / "persuasion" / "commercial acumen"）→ 定 tone</li>
+        <li><strong>Step 4</strong> 找最相关的 Exhibit → E1对应T1a，E2对应T1b（按顺序，别乱跳）</li>
+        <li><strong>Step 5</strong> 构造答案 = 资料事实 + "=>" + 分析/影响/建议</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SKILL 2: 一句话一分 -->
+  <div class="tip-section">
+    <div class="tip-title">⭐ 核心技巧二：得分句子公式（One Sentence = One Mark）</div>
+
+    <div class="tip-box">
+      <h4>📌 得分句子公式（必须背下来）</h4>
+      <div style="background:#F8FAFC; border:2px dashed #CBD5E1; border-radius:8px; padding:16px; margin:10px 0; font-family:'DM Mono',monospace; font-size:13px; line-height:2.2;">
+        <span style="color:#C0392B; font-weight:700;">[Case Fact from Exhibit]</span>
+        <span style="color:#7A6E5A;"> → </span>
+        <span style="color:#1A4A8A; font-weight:700;">[therefore / this means / as a result]</span>
+        <span style="color:#7A6E5A;"> → </span>
+        <span style="color:#2D7A4F; font-weight:700;">[Impact / Implication / Recommendation]</span>
+      </div>
+      <p style="font-size:12px; color:var(--muted);">中文理解：【资料里的事实】 → 因此 → 【影响/后果/建议】= 一分</p>
+    </div>
+
+    <div style="margin-bottom:16px;">
+      <div style="font-size:13px; font-weight:700; color:var(--ink); margin-bottom:10px;">✅ 真实得分句子范例（来自真题答案）</div>
+
+      <div style="background:white; border:1px solid var(--border); border-radius:10px; padding:18px; margin-bottom:10px;">
+        <div style="font-size:11px; color:var(--muted); font-family:'DM Mono',monospace; margin-bottom:6px;">PESTEL题 · Political因素 → SO影响</div>
+        <div style="font-size:13px; color:#1A1208; line-height:2; font-style:italic; border-left:3px solid var(--gold); padding-left:12px;">
+          "Uncertainty in political continuity → investors are less inclined to risk their money → <strong>difficult to raise the necessary finance to grow the business further</strong>, or even sustain its current position."
+        </div>
+        <div style="font-size:11px; color:var(--muted); margin-top:6px;">中文：政治不稳定 → 投资者不敢冒险 → 公司难以融资增长</div>
+      </div>
+
+      <div style="background:white; border:1px solid var(--border); border-radius:10px; padding:18px; margin-bottom:10px;">
+        <div style="font-size:11px; color:var(--muted); font-family:'DM Mono',monospace; margin-bottom:6px;">Performance分析题 · Non-financial KPI</div>
+        <div style="font-size:13px; color:#1A1208; line-height:2; font-style:italic; border-left:3px solid var(--blue); padding-left:12px;">
+          "Total cost of staff training decreased, training days reduced → <strong>impact on staff loyalty</strong> → cannot attract volunteers & cannot motivate own staff → <strong>impact on quality of service</strong> → impact income (attract donor/visitors) → <strong>Do not meet strategic objective of providing education to staff.</strong>"
+        </div>
+        <div style="font-size:11px; color:var(--muted); margin-top:6px;">中文：培训减少 → 员工忠诚度受损 → 服务质量下降 → 收入影响 → 不达战略目标（SO送分！）</div>
+      </div>
+
+      <div style="background:white; border:1px solid var(--border); border-radius:10px; padding:18px; margin-bottom:10px;">
+        <div style="font-size:11px; color:var(--muted); font-family:'DM Mono',monospace; margin-bottom:6px;">内控题 · Impact + Recommendation结构</div>
+        <div style="font-size:13px; color:#1A1208; line-height:2; font-style:italic; border-left:3px solid var(--green); padding-left:12px;">
+          "<strong>Impact:</strong> Weakness in management controls → poor performance unchecked without suitable corrective action → operational issues missed over time."<br>
+          "<strong>Recommend:</strong> Club managers should report to senior regional manager on monthly basis → demonstrate actions taken in response to performance report → tolerances set for variances in performance."
+        </div>
+        <div style="font-size:11px; color:var(--muted); margin-top:6px;">中文：内控弱点（影响）→ 建议具体行动（Recommend必须有时间频率词如"monthly / regularly"）</div>
+      </div>
+
+      <div style="background:white; border:1px solid var(--border); border-radius:10px; padding:18px;">
+        <div style="font-size:11px; color:var(--muted); font-family:'DM Mono',monospace; margin-bottom:6px;">CSR/声誉题</div>
+        <div style="font-size:13px; color:#1A1208; line-height:2; font-style:italic; border-left:3px solid var(--red); padding-left:12px;">
+          "Increase customer loyalty → impact on customer retention → <strong>attract a whole new set of socially responsible customers</strong> → improve reputation (social and community) → attract top quality staff & retain top quality staff."
+        </div>
+        <div style="font-size:11px; color:var(--muted); margin-top:6px;">中文：CSR的连锁好处，每一个箭头 = 一个新得分点</div>
+      </div>
+    </div>
+
+    <div class="danger-box">
+      <h4>❌ 失分写法 vs ✅ 得分写法对比</h4>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:8px;">
+        <div>
+          <div style="font-size:11px; color:var(--red); margin-bottom:4px;">❌ 失分</div>
+          <div style="font-size:12px; line-height:1.8;">"The company should improve its performance to meet its strategic objectives."<br><span style="color:#7A6E5A;">→ 太笼统，无案例，无分析链</span></div>
+        </div>
+        <div>
+          <div style="font-size:11px; color:var(--green); margin-bottom:4px;">✅ 得分</div>
+          <div style="font-size:12px; line-height:1.8;">"Declining revenue [from Exhibit 1] → threatens the company's strategic objective to expand into new markets, as insufficient funds will be available to finance the required investment."<br><span style="color:#7A6E5A;">→ 资料事实 + SO挂钩 + 具体后果</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SKILL 3: SO套路 -->
+  <div class="tip-section">
+    <div class="tip-title">⭐ 核心技巧三：SO 送分套路（Strategic Objectives Free Marks）</div>
+
+    <div class="highlight-box">
+      <h4>📌 什么时候用 SO？</h4>
+      <ul>
+        <li>只要 Requirement 或 PM 里出现 "strategic objectives" / "mission" / "values" → <strong>必须用！考官在送分！</strong></li>
+        <li>即使没有明说，分析外部环境 / 风险 / 绩效题时都可以结尾加一句 SO 挂钩</li>
+        <li>SO 在哪找：Pre-seen 首页 + 当天 Exhibit 1 通常有公司 Mission / Strategic Objectives</li>
+      </ul>
+    </div>
+
+    <div style="margin-bottom:16px;">
+      <div style="font-size:13px; font-weight:700; color:var(--ink); margin-bottom:12px;">📐 SO 送分句子的三种模板（英文 + 中文注解）</div>
+
+      <div style="background:white; border:1px solid var(--border); border-radius:10px; padding:18px; margin-bottom:12px; position:relative; overflow:hidden;">
+        <div style="position:absolute; top:0; left:0; width:4px; height:100%; background:var(--gold);"></div>
+        <div style="font-size:11px; color:var(--muted); font-family:'DM Mono',monospace; margin-bottom:8px;">模板 1 · 外部因素影响SO（最常用）</div>
+        <div style="background:#FFFBEB; border-radius:6px; padding:12px; font-size:13px; font-family:'DM Mono',monospace; line-height:2.2; color:#1A1208;">
+          <span style="color:#C0392B;">[External factor, e.g. economic recession]</span><br>
+          → <span style="color:#1A4A8A;">threatens / supports</span> the company's strategic objective <span style="color:#1A4A8A;">to [SO verb phrase, e.g. increase revenue by 20%]</span>,<br>
+          → as <span style="color:#2D7A4F;">[reason why it impacts the SO]</span>.
+        </div>
+        <div style="margin-top:10px; padding:10px 12px; background:#F2EBD9; border-radius:6px; font-size:12px; color:#1A1208; line-height:2;">
+          <strong>真题范例：</strong><br>
+          "Donors face periods of economic uncertainty → <strong>concern for ability to achieve strategic objectives</strong> → strategic objectives are threatened if revenues decrease."<br>
+          <span style="color:#7A6E5A;">中文：捐款人面临经济不确定性 → 公司担忧能否实现战略目标 → 收入减少则目标受威胁</span>
+        </div>
+      </div>
+
+      <div style="background:white; border:1px solid var(--border); border-radius:10px; padding:18px; margin-bottom:12px; position:relative; overflow:hidden;">
+        <div style="position:absolute; top:0; left:0; width:4px; height:100%; background:var(--blue);"></div>
+        <div style="font-size:11px; color:var(--muted); font-family:'DM Mono',monospace; margin-bottom:8px;">模板 2 · 绩效分析后接SO（Performance题必用）</div>
+        <div style="background:#EFF6FF; border-radius:6px; padding:12px; font-size:13px; font-family:'DM Mono',monospace; line-height:2.2; color:#1A1208;">
+          <span style="color:#C0392B;">[KPI: e.g. staff training costs decreased]</span><br>
+          → <span style="color:#1A4A8A;">this is concerning</span> as it suggests the company <span style="color:#1A4A8A;">is failing to invest in its workforce</span>,<br>
+          → which <span style="color:#2D7A4F;">does not / will not meet the strategic objective of [SO content]</span>.
+        </div>
+        <div style="margin-top:10px; padding:10px 12px; background:#F2EBD9; border-radius:6px; font-size:12px; color:#1A1208; line-height:2;">
+          <strong>真题范例：</strong><br>
+          "Total cost of staff training decreased → <strong>Do not meet strategic objective of providing education to staff</strong>."<br>
+          <span style="color:#7A6E5A;">中文：培训成本下降 → 不符合"为员工提供教育"这条战略目标 → 直接得分！</span>
+        </div>
+      </div>
+
+      <div style="background:white; border:1px solid var(--border); border-radius:10px; padding:18px; position:relative; overflow:hidden;">
+        <div style="position:absolute; top:0; left:0; width:4px; height:100%; background:var(--green);"></div>
+        <div style="font-size:11px; color:var(--muted); font-family:'DM Mono',monospace; margin-bottom:8px;">模板 3 · 开头引入段（Environmental Analysis题必用）</div>
+        <div style="background:#F0FDF4; border-radius:6px; padding:12px; font-size:13px; font-family:'DM Mono',monospace; line-height:2.2; color:#1A1208;">
+          "We must continually assess our external environment to monitor its continued impact on our strategies and to identify how we should respond to these external events <span style="color:#2D7A4F;">to ensure we maintain our strategic direction</span>."
+        </div>
+        <div style="margin-top:10px; padding:10px 12px; background:#F2EBD9; border-radius:6px; font-size:12px; color:#1A1208; line-height:2;">
+          <span style="color:#7A6E5A;">中文：直接用这句话开头，表示你在用PESTEL框架分析外部环境对战略方向的影响 → 加分！这是真题考官答案原句！</span><br>
+          <strong>使用时机：</strong> 任何 Environmental Analysis / External factors / PESTEL 相关题目的 introduction 段
+        </div>
+      </div>
+    </div>
+
+    <div style="background:var(--ink); border-radius:10px; padding:20px; margin-top:16px;">
+      <div style="font-size:13px; font-weight:700; color:var(--gold); margin-bottom:12px;">🔑 SO 送分的完整逻辑链（最高分版本）</div>
+      <div style="font-family:'DM Mono',monospace; font-size:12px; line-height:2.5; color:rgba(255,255,255,0.85);">
+        <span style="color:#F2D084;">[External Factor / KPI / Risk]</span><br>
+        &nbsp;&nbsp;→ <span style="color:#A8D8A8;">[Direct impact on business operations]</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;→ <span style="color:#A8D8A8;">[Secondary consequence]</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→ <span style="color:#FF8A80;">[therefore threatens / supports the strategic objective to ___]</span><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→ <span style="color:#80DEEA;">[Recommendation: The company should ___ to mitigate / achieve this]</span>
+      </div>
+      <div style="font-size:11px; color:rgba(255,255,255,0.4); margin-top:10px;">每一个箭头 = 一个新得分点 · 链条越长 = 分越高</div>
+    </div>
+  </div>
+
+  <!-- FORMAT SECTION -->
+  <div class="tip-section">
+    <div class="tip-title">📋 考场格式完整模板（Format Templates）</div>
+    <p style="font-size:13px; color:var(--muted); margin-bottom:16px;">格式分只占1分，但写错格式非常浪费时间 · 背住这些框架，考场30秒搞定格式</p>
+
+    <div class="card-grid">
+
+      <div style="background:white; border:1px solid var(--border); border-radius:12px; overflow:hidden;">
+        <div style="background:#1A1208; color:var(--gold); padding:12px 16px; font-size:13px; font-weight:700;">📄 Report</div>
+        <div style="padding:16px;">
+          <div style="background:#FAF6EE; border-radius:6px; padding:12px; font-family:'DM Mono',monospace; font-size:12px; line-height:2.2; color:#1A1208; margin-bottom:10px;">
+            To: [Audience name / Board of Directors]<br>
+            From: [Your role in the case]<br>
+            Date: [XX/XX/XXXX]<br>
+            Subject: [Paraphrase the requirement]<br>
+            <br>
+            <strong>Introduction</strong><br>
+            This report aims to [paraphrase requirement]...<br>
+            <br>
+            <strong>1. [Sub-heading from requirement]</strong><br>
+            [Content]<br>
+            <br>
+            <strong>Conclusion</strong><br>
+            In conclusion, [link back to intro]...
+          </div>
+          <div style="font-size:12px; color:var(--muted);">⚠️ Introduction + Conclusion 必须都有 · Sub-headings 照着 requirement 写</div>
+        </div>
+      </div>
+
+      <div style="background:white; border:1px solid var(--border); border-radius:12px; overflow:hidden;">
+        <div style="background:#1A4A8A; color:white; padding:12px 16px; font-size:13px; font-weight:700;">📧 Memo / Email</div>
+        <div style="padding:16px;">
+          <div style="background:#FAF6EE; border-radius:6px; padding:12px; font-family:'DM Mono',monospace; font-size:12px; line-height:2.2; color:#1A1208; margin-bottom:10px;">
+            To: [CEO / Board / specific person]<br>
+            From: [Your role]<br>
+            Date: [XX/XX/XXXX]<br>
+            Subject: [Paraphrase the requirement]<br>
+            <br>
+            [Opening line: state purpose]<br>
+            e.g. "This memo aims to assess the data breach and its impact on our reputation, and to recommend appropriate actions."<br>
+            <br>
+            [Content with sub-headings]<br>
+            <br>
+            [No conclusion needed ✓]
+          </div>
+          <div style="font-size:12px; color:var(--muted);">✅ Memo/Email 一般<strong>不写 Conclusion</strong> · 用第一人称 · 语气比 Report 更直接</div>
+        </div>
+      </div>
+
+      <div style="background:white; border:1px solid var(--border); border-radius:12px; overflow:hidden;">
+        <div style="background:#2D7A4F; color:white; padding:12px 16px; font-size:13px; font-weight:700;">✉️ Letter</div>
+        <div style="padding:16px;">
+          <div style="background:#FAF6EE; border-radius:6px; padding:12px; font-family:'DM Mono',monospace; font-size:12px; line-height:2.2; color:#1A1208; margin-bottom:10px;">
+            [Recipient Name]<br>
+            [Address from case, don't invent]<br>
+            [XX/XX/XXXX]<br>
+            <br>
+            Dear [Mr/Ms Surname]:<br>
+            <br>
+            [Body - usually 3rd person]<br>
+            <br>
+            If you need any further information,<br>
+            please do not hesitate to contact me.<br>
+            <br>
+            Yours faithfully / Sincerely,<br>
+            [Your name & company]
+          </div>
+          <div style="font-size:12px; color:var(--muted);">⚠️ Address 用案例里给的，不要自己编 · 正文一般用第三人称</div>
+        </div>
+      </div>
+
+      <div style="background:white; border:1px solid var(--border); border-radius:12px; overflow:hidden;">
+        <div style="background:#831843; color:white; padding:12px 16px; font-size:13px; font-weight:700;">📊 Presentation Slides</div>
+        <div style="padding:16px;">
+          <div style="background:#FAF6EE; border-radius:6px; padding:12px; font-family:'DM Mono',monospace; font-size:12px; line-height:2.2; color:#1A1208; margin-bottom:10px;">
+            ┌─────────────────────────────┐<br>
+            │ <strong>Slide 1 Title (short phrase)</strong> │<br>
+            │ • Bullet point (phrase only) │<br>
+            │ • Bullet point              │<br>
+            │ • Bullet point (3-5 max)    │<br>
+            └─────────────────────────────┘<br>
+            <br>
+            Accompanying Notes:<br>
+            [Full sentences explaining each bullet]
+          </div>
+          <div style="font-size:12px; color:var(--muted);">⭐ 技巧：先正常写完整答案 → 再提炼关键词做 bullet · Slides用短语，Notes用完整句子 · 优点/缺点各一张slide，篇幅要平衡</div>
+        </div>
+      </div>
+
+      <div style="background:white; border:1px solid var(--border); border-radius:12px; overflow:hidden;">
+        <div style="background:#0C4A6E; color:white; padding:12px 16px; font-size:13px; font-weight:700;">📋 Briefing Notes / Paper</div>
+        <div style="padding:16px;">
+          <div style="background:#FAF6EE; border-radius:6px; padding:12px; font-family:'DM Mono',monospace; font-size:12px; line-height:2.2; color:#1A1208; margin-bottom:10px;">
+            FAO: [Full name of audience]<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(For the Attention Of)<br>
+            Subject: [Paraphrase requirement]<br>
+            <br>
+            [Content with sub-headings]<br>
+            [No conclusion required]
+          </div>
+          <div style="font-size:12px; color:var(--muted);">FAO = For the Attention Of（固定用法）· 格式比 Report 简单</div>
+        </div>
+      </div>
+
+      <div style="background:white; border:1px solid var(--border); border-radius:12px; overflow:hidden;">
+        <div style="background:#4C1D95; color:white; padding:12px 16px; font-size:13px; font-weight:700;">📰 Press Release 新闻稿</div>
+        <div style="padding:16px;">
+          <div style="background:#FAF6EE; border-radius:6px; padding:12px; font-family:'DM Mono',monospace; font-size:12px; line-height:2.2; color:#1A1208; margin-bottom:10px;">
+            PRESS RELEASE<br>
+            For immediate release<br>
+            <br>
+            [Company name] responds to [recent event]<br>
+            <br>
+            [Body content]<br>
+            <br>
+            For further information please contact<br>
+            our [PR / Financial] department.
+          </div>
+          <div style="font-size:12px; color:var(--muted);">⚠️ 格式特殊，记住开头和结尾的固定用语即可 · 考到概率较低</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TIME MANAGEMENT -->
+  <div class="tip-section">
+    <div class="tip-title">⏰ 时间管理策略（Time Management）</div>
+    <div class="tip-box">
+      <h4>📌 考场做题四步循环（每道题重复）</h4>
+      <ul>
+        <li><strong>Step 1 粗读问题</strong> → 先快速看这道题问什么</li>
+        <li><strong>Step 2 读最相关资料</strong> → E1→T1a，E2→T1b，按顺序，不要一口气读完4个Exhibit</li>
+        <li><strong>Step 3 认真审题</strong> → 用交相辉映法，锁定答案方向</li>
+        <li><strong>Step 4 答题 → Keep Moving</strong> → 卡住了继续向前，不要死磕一道题</li>
+      </ul>
+    </div>
+    <div class="highlight-box">
+      <h4>💡 时间管理黄金原则</h4>
+      <ul>
+        <li>会写的题 → 严格按"一句一分"，<strong>不要多写</strong></li>
+        <li>难题 → 按常识和资料写，别慌，答案就在资料里</li>
+        <li>先做的题简单别贪多，先做的题难别放弃 → 考官平衡了整套卷子难度</li>
+        <li>时间管理 > 时间分配 → 节奏比规划每题多少分钟更重要</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ======================= SECTION: PAPERS ======================= -->
+<div id="papers" class="section">
+  <div class="section-title">
+    <div class="icon">📝</div>
+    真题带练 · 英文答案范例
+  </div>
+  <p class="section-desc">真实考官答案 + 蹇老师改编精华 · 英文答案 + 中文快速理解 · 背这些句子就是积累素材</p>
+
+  <!-- 答案句式总结 -->
+  <div style="background:var(--ink); border-radius:12px; padding:24px; margin-bottom:28px;">
+    <div style="font-size:15px; font-weight:700; color:var(--gold); margin-bottom:16px;">🔑 万能答题逻辑链（适用所有题型）</div>
+    <div style="font-family:'DM Mono',monospace; font-size:12px; color:rgba(255,255,255,0.9); line-height:2.5;">
+      <span style="color:#F2D084;">STEP 1</span> → 抄资料：[Case fact from Exhibit] <span style="color:rgba(255,255,255,0.3);">（抄就有1分）</span><br>
+      <span style="color:#A8D8A8;">STEP 2</span> → 展开：→ this means / therefore / as a result... <span style="color:rgba(255,255,255,0.3);">（展了才是满分）</span><br>
+      <span style="color:#FF8A80;">STEP 3</span> → 挂SO：→ which threatens/supports the strategic objective to... <span style="color:rgba(255,255,255,0.3);">（送分加分）</span>
+    </div>
+  </div>
+
+  <!-- ENVIRONMENTAL ANALYSIS -->
+  <div class="paper-item">
+    <div class="paper-header">
+      <h3>📌 题型1：Environmental Analysis（PESTEL）</h3>
+      <span class="paper-meta">2019/03 · 2020/12 · 出现频率极高</span>
+    </div>
+    <div class="paper-body">
+
+      <div style="background:#F8FAFC; border-radius:8px; padding:14px; margin-bottom:16px; font-size:12px; color:var(--muted);">
+        典型 Requirement："<em>Analyse the key external factors in the environment that could impact on [Company]'s strategic objectives.</em>"
+        <div style="margin-top:6px; color:var(--ink); font-size:11px;">中文：分析外部环境关键因素对战略目标的影响 → PESTEL框架 + SO挂钩</div>
+      </div>
+
+      <div style="font-size:13px; font-weight:700; margin-bottom:10px; color:var(--ink);">✅ 得分答案范例（逐段拆解）</div>
+
+      <div style="border-left:4px solid var(--gold); padding-left:16px; margin-bottom:14px;">
+        <div style="font-size:11px; color:var(--muted); font-family:'DM Mono',monospace; margin-bottom:6px;">开头必写（考官真题原句）</div>
+        <div style="font-size:13px; color:#1A1208; font-style:italic; line-height:2; background:#FFFBEB; padding:10px; border-radius:6px;">
+          "We must continually assess our external environment to monitor its continued impact on our strategies and to identify how we should respond to these external events to ensure we maintain our <strong>strategic direction</strong>."
+        </div>
+        <div style="font-size:11px; color:var(--muted); margin-top:4px;">中文：这是开头引言套句，直接用！</div>
+      </div>
+
+      <div style="border-left:4px solid var(--blue); padding-left:16px; margin-bottom:14px;">
+        <div style="font-size:11px; color:var(--muted); font-family:'DM Mono',monospace; margin-bottom:6px;">Political因素（真题范例）</div>
+        <div style="font-size:13px; color:#1A1208; font-style:italic; line-height:2; background:#EFF6FF; padding:10px; border-radius:6px;">
+          "Uncertainty in political continuity → without confidence in political continuity, <strong>investors are less inclined to risk their money</strong> → difficult to raise the necessary finance to grow the business further, or even sustain its current position → the company may need to reconsider the strategy goals and focus on <strong>consolidating position</strong>."
+        </div>
+        <div style="font-size:11px; color:var(--muted); margin-top:4px;">公式：政治不稳 → 投资者不敢冒险 → 融资困难 → 战略目标受影响</div>
+      </div>
+
+      <div style="border-left:4px solid var(--red); padding-left:16px; margin-bottom:14px;">
+        <div style="font-size:11px; color:var(--muted); font-family:'DM Mono',monospace; margin-bottom:6px;">Economic因素（连锁影响写法）</div>
+        <div style="font-size:13px; color:#1A1208; font-style:italic; line-height:2; background:#FEF2F2; padding:10px; border-radius:6px;">
+          "High level of unemployment, high price inflation, resultant deep recession → less <strong>disposable income</strong> → customers may return to more upmarket clothing and <strong>away from low-end companies</strong> like [Company] → strategic objectives threatened if revenues decrease."
+        </div>
+        <div style="font-size:11px; color:var(--muted); margin-top:4px;">公式：经济衰退 → 可支配收入减少 → 消费习惯改变 → 收入威胁 → SO受影响</div>
+      </div>
+
+      <div style="border-left:4px solid var(--green); padding-left:16px;">
+        <div style="font-size:11px; color:var(--muted); font-family:'DM Mono',monospace; margin-bottom:6px;">Technological因素（e-commerce）</div>
+        <div style="font-size:13px; color:#1A1208; font-style:italic; line-height:2; background:#F0FDF4; padding:10px; border-radius:6px;">
+          "Growth of e-commerce → new clothing e-retailers <strong>put downward pressure on prices, squeezing margin</strong> → the company's ability to maintain profitable operations is undermined → this directly threatens the strategic objective to [achieve X% return on investment]."
+        </div>
+        <div style="font-size:11px; color:var(--muted); margin-top:4px;">公式：技术/电商崛起 → 价格压力 → 利润率受损 → SO受威胁</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RISK ANALYSIS -->
+  <div class="paper-item">
+    <div class="paper-header">
+      <h3>📌 题型2：Risk Analysis & Risk Register</h3>
+      <span class="paper-meta">2020/03 Q1a · 2020/12 Q3 · 超级热门</span>
+    </div>
+    <div class="paper-body">
+
+      <div style="background:#F8FAFC; border-radius:8px; padding:14px; margin-bottom:16px; font-size:12px; color:var(--muted);">
+        典型 Requirement："<em>Assess the major risks [Company] faces and <strong>suggest actions to manage these risks</strong>.</em>"
+        <div style="margin-top:6px; color:var(--ink); font-size:11px;">中文：分析主要风险 + 给出管理建议 → 每个风险：描述 → 影响 → 建议（Impact + Action）</div>
+      </div>
+
+      <div style="font-size:13px; font-weight:700; margin-bottom:10px; color:var(--ink);">✅ 高分答案结构（每个风险用这个格式）</div>
+
+      <div style="background:white; border:1px solid var(--border); border-radius:8px; padding:16px; margin-bottom:12px;">
+        <div style="font-size:12px; font-weight:700; color:var(--ink); margin-bottom:8px;">Risk: [Risk Name from Exhibit] e.g. Data Security Risk</div>
+        <div style="font-size:13px; color:#1A1208; font-style:italic; line-height:2.2; border-left:3px solid var(--red); padding-left:12px;">
+          <strong>Impact:</strong> "The firewall has not been maintained regularly [Exhibit 1] → this represents a significant weakness in NCTech's IT controls → unauthorised access to client data may occur → <strong>serious reputational damage</strong>, loss of client trust, and potential legal liability could result."<br><br>
+          <strong>Action:</strong> "The company should immediately conduct an independent security audit to assess the extent of the breach → implement multi-factor authentication → <strong>regularly</strong> update and test the firewall to prevent future incidents → notify affected clients promptly to manage reputational risk."
+        </div>
+        <div style="font-size:11px; color:var(--muted); margin-top:8px;">中文：①描述风险（抄资料）→ ②分析恶果（impact连锁）→ ③具体建议（注意写"regularly / immediately"等频率词！）</div>
+      </div>
+
+      <div class="danger-box" style="margin-bottom:0;">
+        <h4>⚠️ 风险题最常见失分点</h4>
+        <ul>
+          <li>只写风险描述，没写影响（Impact）→ 只得一半分</li>
+          <li>建议太笼统："improve controls" → 0分 · 要写："conduct monthly reviews of..."</li>
+          <li>审题：有的题只问 Impact，没问建议 → 千万不要写建议！</li>
+          <li>好建议公式：<strong>[What to do] + [How often / by whom] + [Why this helps]</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- STRATEGIC OPTIONS EVALUATION -->
+  <div class="paper-item">
+    <div class="paper-header">
+      <h3>📌 题型3：Evaluate Strategic Options（SFA框架）</h3>
+      <span class="paper-meta">2020/03 Q1b · 极高频 · Evaluate必须写正反两面</span>
+    </div>
+    <div class="paper-body">
+
+      <div style="background:#F8FAFC; border-radius:8px; padding:14px; margin-bottom:16px; font-size:12px; color:var(--muted);">
+        典型 Requirement："<em>Evaluate the two strategic options available to [Company].</em>"
+        <div style="margin-top:6px; color:var(--ink); font-size:11px;">中文：Evaluate = 正反两面分析 · 用 SFA（Suitability适用性 / Feasibility可行性 / Acceptability可接受性）</div>
+      </div>
+
+      <div style="font-size:13px; font-weight:700; margin-bottom:10px; color:var(--ink);">✅ 高分答案结构</div>
+
+      <div style="background:white; border:1px solid var(--border); border-radius:8px; padding:16px; margin-bottom:12px;">
+        <div style="font-size:12px; font-weight:700; color:var(--ink); margin-bottom:8px;">Option A: [e.g. Expand into new markets]</div>
+        <div style="font-size:13px; color:#1A1208; font-style:italic; line-height:2.2; border-left:3px solid var(--green); padding-left:12px;">
+          <strong>Suitability:</strong> "This option is suitable as it directly addresses the company's strategic objective to grow revenue. The external environment analysis [Exhibit] shows growing demand in that market → strong strategic fit."<br><br>
+          <strong>Feasibility:</strong> "However, the company currently operates at 100% capacity [Exhibit 2] → insufficient resources to support expansion without significant capital investment → feasibility is questionable given the current financial constraints."<br><br>
+          <strong>Acceptability:</strong> "Shareholders may find the risk level unacceptable given the high capital outlay required and uncertain returns → may negatively impact short-term dividend payments → <strong>this could conflict with investors' expectations</strong>."
+        </div>
+      </div>
+
+      <div style="background:white; border:1px solid var(--border); border-radius:8px; padding:16px;">
+        <div style="font-size:12px; font-weight:700; color:var(--ink); margin-bottom:8px;">Option B: [e.g. Joint Venture]</div>
+        <div style="font-size:13px; color:#1A1208; font-style:italic; line-height:2.2; border-left:3px solid var(--blue); padding-left:12px;">
+          "The joint venture approach reduces financial risk through shared investment → more acceptable to risk-averse shareholders → however, cultural differences and profit-sharing disputes may undermine management effectiveness → <strong>overall, Option B appears more feasible</strong> given the company's current resource constraints."
+        </div>
+      </div>
+
+      <div class="highlight-box" style="margin-top:12px; margin-bottom:0;">
+        <h4>🎯 Evaluate 题得分技巧</h4>
+        <ul>
+          <li><strong>必须正反两面</strong>：只写优点或只写缺点最多得一半分</li>
+          <li><strong>必须结合案例</strong>：纯理论不得分，每个点都要有 "[from Exhibit]" 或 "[according to the pre-seen]"</li>
+          <li><strong>PM = Evaluation（4分）</strong>：最后要给出判断——Overall, which option is better and why</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTERNAL CONTROL -->
+  <div class="paper-item">
+    <div class="paper-header">
+      <h3>📌 题型4：Internal Control Weaknesses（内控题）</h3>
+      <span class="paper-meta">2019/03 Q3 · 2022/12 · 永久热点 · 知识储备题</span>
+    </div>
+    <div class="paper-body">
+
+      <div style="background:#F8FAFC; border-radius:8px; padding:14px; margin-bottom:16px; font-size:12px; color:var(--muted);">
+        典型 Requirement："<em>Assess the weaknesses in [Company]'s internal control activities and <strong>recommend improvements</strong>.</em>"
+        <div style="margin-top:6px; color:var(--ink); font-size:11px;">中文：内控弱点 + 建议 → 固定格式：Weakness → Impact → Recommendation</div>
+      </div>
+
+      <div style="font-size:13px; font-weight:700; margin-bottom:10px; color:var(--ink);">✅ 真题答案范例（可直接套用）</div>
+
+      <div style="background:white; border:1px solid var(--border); border-radius:8px; padding:16px; margin-bottom:12px;">
+        <div style="font-size:13px; color:#1A1208; font-style:italic; line-height:2.2; border-left:3px solid var(--red); padding-left:12px;">
+          <strong>Weakness: Review of monthly performance reports</strong><br>
+          "Impact: Weakness in management controls → poor performance unchecked without suitable corrective action → operational issues missed over time → <strong>weakness in understanding of importance to the operations of the whole business</strong>."<br><br>
+          "Recommend: Club managers should report to senior regional manager/HO on a <strong>monthly basis</strong> → demonstrate actions taken in response to performance reports → tolerances set for variances in performance → must be reported on each month."
+        </div>
+      </div>
+
+      <div style="background:white; border:1px solid var(--border); border-radius:8px; padding:16px;">
+        <div style="font-size:13px; color:#1A1208; font-style:italic; line-height:2.2; border-left:3px solid var(--blue); padding-left:12px;">
+          <strong>Weakness: Unqualified Staff</strong><br>
+          "Impact: Weakness in personnel controls → unqualified staff delivering services → <strong>quality of service compromised</strong> → increased risk of injury to customers → legal liability and reputational damage."<br><br>
+          "Recommend: All customer-facing staff should hold <strong>minimum qualification requirements</strong> → HR to verify certificates before employment → ongoing CPD (Continuing Professional Development) to maintain competence."
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PERFORMANCE ANALYSIS -->
+  <div class="paper-item">
+    <div class="paper-header">
+      <h3>📌 题型5：Performance Analysis（绩效分析）</h3>
+      <span class="paper-meta">2020/12 Q1b · 2022/09 Q3a · 高分关键题型</span>
+    </div>
+    <div class="paper-body">
+
+      <div style="background:#F8FAFC; border-radius:8px; padding:14px; margin-bottom:16px; font-size:12px; color:var(--muted);">
+        典型 Requirement："<em>Assess the financial and non-financial performance of [Company], identifying the <strong>reasons</strong> for any areas of concern.</em>"
+        <div style="margin-top:6px; color:var(--ink); font-size:11px;">中文：只问"原因"就只写原因！不要写建议！严格遵守审题</div>
+      </div>
+
+      <div style="font-size:13px; font-weight:700; margin-bottom:10px; color:var(--ink);">✅ 必会思维：先判断是否 significant / concerning</div>
+
+      <div style="background:white; border:1px solid var(--border); border-radius:8px; padding:16px; margin-bottom:12px;">
+        <div style="font-size:13px; color:#1A1208; font-style:italic; line-height:2.2; border-left:3px solid var(--gold); padding-left:12px;">
+          <strong>Financial KPI: Revenue declined by 15% [from Exhibit]</strong><br>
+          "This is <strong>significant and concerning</strong> as it represents a substantial deterioration in trading performance. The decline may be attributed to increased competition from online retailers [Exhibit 2] → resulting in loss of market share → <strong>this directly threatens the strategic objective to achieve revenue growth of X%</strong> and raises doubts about the sustainability of the business model."
+        </div>
+        <div style="font-size:11px; color:var(--muted); margin-top:8px;">公式：判断程度（significant/concerning）→ 分析原因（资料证据）→ SO挂钩</div>
+      </div>
+
+      <div style="background:white; border:1px solid var(--border); border-radius:8px; padding:16px;">
+        <div style="font-size:13px; color:#1A1208; font-style:italic; line-height:2.2; border-left:3px solid var(--green); padding-left:12px;">
+          <strong>Non-financial KPI: Staff training costs decreased</strong><br>
+          "Total cost of staff training decreased, training days reduced [Exhibit] → <strong>impact on staff loyalty</strong> → cannot attract volunteers & cannot motivate own staff → <strong>impact on quality of service / protection activities</strong> → impact income (attract donor/visitors) → <strong>does not meet the strategic objective of providing education to staff</strong>."
+        </div>
+        <div style="font-size:11px; color:var(--muted); margin-top:8px;">这是真题满分链条！每个 → 都是一个得分点，共5-6分</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ETHICS -->
+  <div class="paper-item">
+    <div class="paper-header">
+      <h3>📌 题型6：Ethical Issues（伦理题）</h3>
+      <span class="paper-meta">2022/09 Q3b · 中等频率 · 必须 specify ethical principle</span>
+    </div>
+    <div class="paper-body">
+
+      <div style="background:#F8FAFC; border-radius:8px; padding:14px; margin-bottom:16px; font-size:12px; color:var(--muted);">
+        典型 Requirement："<em>Assess the ethical issues and business threats faced by [Company] as a result of [specific situation].</em>"
+        <div style="margin-top:6px; color:var(--ink); font-size:11px;">中文：识别伦理问题 → 挂钩AA六条伦理原则 → 分析影响</div>
+      </div>
+
+      <div style="font-size:13px; font-weight:700; margin-bottom:10px; color:var(--ink);">✅ AA六条伦理原则（必背！这是得分工具）</div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:14px;">
+        <div style="background:white; border:1px solid var(--border); border-radius:8px; padding:12px;">
+          <div style="font-size:11px; color:var(--muted); font-family:'DM Mono',monospace;">Principle 01</div>
+          <div style="font-size:13px; font-weight:700; color:var(--ink); margin:4px 0;">Integrity 诚信</div>
+          <div style="font-size:12px; color:var(--muted);">Straightforward and honest in all professional relationships 在职业关系中诚实公正</div>
+        </div>
+        <div style="background:white; border:1px solid var(--border); border-radius:8px; padding:12px;">
+          <div style="font-size:11px; color:var(--muted); font-family:'DM Mono',monospace;">Principle 02</div>
+          <div style="font-size:13px; font-weight:700; color:var(--ink); margin:4px 0;">Objectivity 客观</div>
+          <div style="font-size:12px; color:var(--muted);">Not allow bias, conflict of interest to override professional judgement 不受偏见/利益冲突影响</div>
+        </div>
+        <div style="background:white; border:1px solid var(--border); border-radius:8px; padding:12px;">
+          <div style="font-size:11px; color:var(--muted); font-family:'DM Mono',monospace;">Principle 03</div>
+          <div style="font-size:13px; font-weight:700; color:var(--ink); margin:4px 0;">Professional Competence 专业能力</div>
+          <div style="font-size:12px; color:var(--muted);">Maintain knowledge and skill at required level 保持专业知识和技能</div>
+        </div>
+        <div style="background:white; border:1px solid var(--border); border-radius:8px; padding:12px;">
+          <div style="font-size:11px; color:var(--muted); font-family:'DM Mono',monospace;">Principle 04</div>
+          <div style="font-size:13px; font-weight:700; color:var(--ink); margin:4px 0;">Confidentiality 保密</div>
+          <div style="font-size:12px; color:var(--muted);">Not disclose confidential information without authority 不得未经授权披露机密信息</div>
+        </div>
+        <div style="background:white; border:1px solid var(--border); border-radius:8px; padding:12px; grid-column:1/3;">
+          <div style="font-size:11px; color:var(--muted); font-family:'DM Mono',monospace;">Principle 05</div>
+          <div style="font-size:13px; font-weight:700; color:var(--ink); margin:4px 0;">Professional Behaviour 职业行为</div>
+          <div style="font-size:12px; color:var(--muted);">Comply with laws and avoid actions that discredit the profession 遵守法律，避免有损职业声誉的行为</div>
+        </div>
+      </div>
+
+      <div style="background:white; border:1px solid var(--border); border-radius:8px; padding:16px;">
+        <div style="font-size:12px; font-weight:700; margin-bottom:8px; color:var(--ink);">✅ 伦理题答案格式（真题范例）</div>
+        <div style="font-size:13px; color:#1A1208; font-style:italic; line-height:2.2; border-left:3px solid var(--red); padding-left:12px;">
+          "The use of child labour by cocoa farmers [Exhibit] raises a significant ethical issue → this is <strong>directly against our stated beliefs</strong> as an organisation, as evidenced in the ethical sourcing statement of our annual report → this breaches the principle of <strong>integrity</strong>, as it suggests the company is not behaving honestly in its supply chain → <strong>business threat:</strong> if exposed by journalists, reputational damage and loss of customer loyalty could occur → the company should work with suppliers to improve conditions rather than simply avoid the issue."
+        </div>
+        <div style="font-size:11px; color:var(--muted); margin-top:8px;">公式：资料事实 → 违反哪条AA原则（specify！）→ 商业影响 → 建议</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ======================= SECTION: SIX WEEKS ======================= -->
+<div id="sixweeks" class="section">
+  <div class="section-title">
+    <div class="icon">🗓️</div>
+    6周完整冲刺计划
+  </div>
+  <p class="section-desc">Mike蹇老师考前6周最优学习路径</p>
+
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-dot">W0</div>
+      <div class="tl-content">
+        <div class="tl-header">
+          <span class="tl-week">第0周 步骤1</span>
+          <span class="tl-date">1/17–1/18</span>
+          <span class="tl-title">建立SBL全局认知</span>
+        </div>
+        <div class="tl-body">
+          听应试技巧宝典第1段 + 知识点宝典1-9段（第一遍粗读）
+        </div>
+        <div class="tl-goal">
+          🎯 目标：明白考试特点（pre-seen/资料/考题关系）+ 知道整个知识框架有几个模块、每模块重点在哪<br>
+          💡 Tips：第一遍听完觉得懵逼很正常，快速进入刷题！
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot">W0</div>
+      <div class="tl-content">
+        <div class="tl-header">
+          <span class="tl-week">步骤2</span>
+          <span class="tl-date">W0期间</span>
+          <span class="tl-title">看三套真题讲解（不动手）</span>
+        </div>
+        <div class="tl-body">
+          按照【2309&2312&2412真题录像明细】完成指定视频段落，只听不写
+        </div>
+        <div class="tl-goal">
+          🎯 目标1 (2312)：明白pre-seen正确使用态度 + 强化"抄&展"应试技巧<br>
+          🎯 目标2 (2309)：强化评分标准，明白"一句话一分"<br>
+          🎯 目标3 (2412)：体会PM评分标准，明白答案深度不是挂科原因
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot">W1-2</div>
+      <div class="tl-content">
+        <div class="tl-header">
+          <span class="tl-week">步骤3</span>
+          <span class="tl-date">1/19–2/1</span>
+          <span class="tl-title">经典6套完整题目第一轮</span>
+        </div>
+        <div class="tl-body">
+          按照【应试提高-必做题训练】表格要求学习，注意是否需要自己动手
+        </div>
+        <div class="tl-goal">
+          🎯 正确方法：理解考官答案的逻辑 → 抄改编后的精简答案 → 被考官同化！<br>
+          ❌ 错误方法：纠结自己的答案是否正确
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot">W3</div>
+      <div class="tl-content">
+        <div class="tl-header">
+          <span class="tl-week">步骤4</span>
+          <span class="tl-date">2/02–2/08</span>
+          <span class="tl-title">宝典第二遍 + 开始二刷</span>
+        </div>
+        <div class="tl-body">
+          听应试技巧宝典2-6段（第一遍）+ 知识点宝典1-9段（第二遍）
+          <br>对6套题目进行二刷（只针对表格标注"值得二刷"的部分）
+        </div>
+        <div class="tl-goal">
+          🎯 第二遍听宝典逻辑会清晰很多！重点标记自己不熟悉的红色字<br>
+          💡 SBL王道：背宝典（积累素材）+ 刷题（学审题）两手都要硬！
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot">W4</div>
+      <div class="tl-content">
+        <div class="tl-header">
+          <span class="tl-week">步骤5</span>
+          <span class="tl-date">2/9–2/15</span>
+          <span class="tl-title">价值局部题目 + 继续背宝典</span>
+        </div>
+        <div class="tl-body">
+          完成【价值局部题目】5组，只听视频积累思路和红色词汇
+        </div>
+        <div class="tl-goal">
+          🎯 不用做任何老师指定以外的题目！<br>
+          💡 整个过程的题目范围已经足够了，超出范围的额外题目性价比很低
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot">W5</div>
+      <div class="tl-content">
+        <div class="tl-header">
+          <span class="tl-week">步骤6</span>
+          <span class="tl-date">2/16–2/22</span>
+          <span class="tl-title">Pre-seen精读 + 考官文章 + 三刷</span>
+        </div>
+        <div class="tl-body">
+          阅读当季Pre-seen（英语差5遍以上，英语好3遍）
+          <br>完成考官文章学习（只学老师指定的）
+          <br>继续背宝典 + 三刷有价值题目
+        </div>
+        <div class="tl-goal">
+          🎯 Pre-seen：只需熟悉内容，不要分析出题思路！<br>
+          ⚠️ 分析pre-seen出题思路是最浪费时间的行为
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-dot">W6</div>
+      <div class="tl-content">
+        <div class="tl-header">
+          <span class="tl-week">步骤7</span>
+          <span class="tl-date">2/23–3/1</span>
+          <span class="tl-title">最终冲刺</span>
+        </div>
+        <div class="tl-body">
+          背最新小红书宝典（查漏补缺）
+          <br>考前2-3天：听Pre-seen讲解视频（老师会公布）
+        </div>
+        <div class="tl-goal">
+          🎯 宝典红色字必须达到肌肉记忆（闭眼能写）<br>
+          📑 考前pre-seen分析是老师的责任，你的任务是把宝典背到位
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <hr class="divider">
+
+  <div class="card-grid">
+    <div class="highlight-box" style="border-radius:12px;">
+      <h4>📚 考官文章要点</h4>
+      <ul>
+        <li>Applications of new technology → 听视频建立每个技术的逻辑</li>
+        <li>Environmental and sustainability issues → 建立分析思路，红色部分必会写</li>
+        <li>The impacts of new technologies on organisational culture → 2025年2月最新文章，还没考过，非常重要！</li>
+        <li>202509-202606考季：截至目前暂无新文章</li>
+      </ul>
+    </div>
+    <div class="tip-box">
+      <h4>🏆 王道总结（最终记住这句话）</h4>
+      <p style="margin-top:8px; font-size:14px; color:var(--ink); line-height:2;">
+        <strong>背宝典</strong>（积累答题素材）<br>
+        + <strong>刷题学审题</strong>（学会如何合理地把素材用到答案中）<br>
+        = <strong>通过SBL</strong> ✅
+      </p>
+      <p style="margin-top:8px; font-size:13px; color:var(--muted);">任何只重视其中一项的同学，挂科概率大幅上升。</p>
+    </div>
+  </div>
+</div>
+
+</div><!-- /content -->
+
+<div class="footer">
+  <p>SBL 3月考试冲刺宝典 · 基于 <span>蹇老师冲刺学习版</span> 整理 · 目标：55分稳稳通过</p>
+  <p style="margin-top:8px;">加油！你一定可以的 💪</p>
+</div>
+
+<script>
+function switchTab(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
